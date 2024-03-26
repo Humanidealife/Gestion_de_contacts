@@ -55,5 +55,10 @@ namespace Gestion_de_contacts
             //Charger la liste au niveau du formulaire
             RefreshListView();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // faire une boucle sur la list des contacts pour vérifier la sélection
+        }
     }
 }
