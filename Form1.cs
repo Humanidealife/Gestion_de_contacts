@@ -61,14 +61,14 @@ namespace Gestion_de_contacts
         {
             // faire une boucle sur la list des contacts pour vérifier la sélection
             //Ceci est une façon qui a un prblème, il ne choisit que le premier élement qui a le même nom
-            /*foreach (var item in Contacts.ListContacts)
+            foreach (var item in Contacts.ListContacts)
             {
-                if(item.Nom == listView1.SelectedItems[0].Text)
+                if(item.Nom == listView1.SelectedItems[0].SubItems[0].Text && item.Prenom == listView1.SelectedItems[0].SubItems[1].Text && item.Telephone == listView1.SelectedItems[0].SubItems[2].Text)
                 {
                     Contacts.ListContacts.Remove(item);
                     break;
                 }
-            }*/
+            }
 
             //Il faut utiliser une autre méthode pour supprimer un contact
             //On doit utiliser une boucle for pour parcourir la liste et suupprimer que la ligne sélectionnée
@@ -84,7 +84,7 @@ namespace Gestion_de_contacts
             }*/
             //!!Problème de la méthode ci-dessus, il ne supprime pas de contact
             //une autre façon de supprimer un contact
-            if (listView1.SelectedItems.Count > 0)
+            /*if (listView1.SelectedItems.Count > 0)
             {
                 // Obtenir l'élément sélectionné
                 ListViewItem selectedItem = listView1.SelectedItems[0];
@@ -100,12 +100,12 @@ namespace Gestion_de_contacts
 
                 // Rafraîchir la ListView
                 RefreshListView();
-            }
+            }*/
 
 
             //Sauvegarder la liste après la suppression
-            //Contacts.SaveContacts();
-            //RefreshListView();
+            Contacts.SaveContacts();
+            RefreshListView();
         }
 
         //Le bouton pour modifier un contact
