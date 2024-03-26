@@ -73,18 +73,39 @@ namespace Gestion_de_contacts
             //Il faut utiliser une autre méthode pour supprimer un contact
             //On doit utiliser une boucle for pour parcourir la liste et suupprimer que la ligne sélectionnée
             //On ne vérifie pas le nom, on vérifie l'index de la ligne sélectionnée
-            for (int i = 0; i < Contacts.ListContacts.Count; i++)
+            //Mais cette façon ne fonctionne pas quand la listView est triée
+            /*for (int i = 0; i < Contacts.ListContacts.Count; i++)
             {
                 if (i == listView1.SelectedItems[0].Index)
                 {
                     Contacts.ListContacts.RemoveAt(i);
                     break;
                 }
+            }*/
+            //!!Problème de la méthode ci-dessus, il ne supprime pas de contact
+            //une autre façon de supprimer un contact
+            if (listView1.SelectedItems.Count > 0)
+            {
+                // Obtenir l'élément sélectionné
+                ListViewItem selectedItem = listView1.SelectedItems[0];
+
+                // Supprimer l'élément sélectionné de la ListView
+                listView1.Items.Remove(selectedItem);
+
+                // Supprimer le contact correspondant de la base de données
+                Contacts.ListContacts.Remove(selectedItem.Tag as Contacts); // Remplacez "Contact" par le type de vos contacts
+
+                // Sauvegarder la liste après la suppression
+                Contacts.SaveContacts();
+
+                // Rafraîchir la ListView
+                RefreshListView();
             }
 
+
             //Sauvegarder la liste après la suppression
-            Contacts.SaveContacts();
-            RefreshListView();
+            //Contacts.SaveContacts();
+            //RefreshListView();
         }
 
         //Le bouton pour modifier un contact
