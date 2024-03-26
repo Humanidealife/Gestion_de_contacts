@@ -59,6 +59,31 @@ namespace Gestion_de_contacts
         private void button2_Click(object sender, EventArgs e)
         {
             // faire une boucle sur la list des contacts pour vérifier la sélection
+            //Ceci est une façon qui a un prblème, il ne choisit que le premier élement qui a le même nom
+            /*foreach (var item in Contacts.ListContacts)
+            {
+                if(item.Nom == listView1.SelectedItems[0].Text)
+                {
+                    Contacts.ListContacts.Remove(item);
+                    break;
+                }
+            }*/
+
+            //Il faut utiliser une autre méthode pour supprimer un contact
+            //On doit utiliser une boucle for pour parcourir la liste et suupprimer que la ligne sélectionnée
+            //On ne vérifie pas le nom, on vérifie l'index de la ligne sélectionnée
+            for (int i = 0; i < Contacts.ListContacts.Count; i++)
+            {
+                if (i == listView1.SelectedItems[0].Index)
+                {
+                    Contacts.ListContacts.RemoveAt(i);
+                    break;
+                }
+            }
+
+            //Sauvegarder la liste après la suppression
+            Contacts.SaveContacts();
+            RefreshListView();
         }
     }
 }
