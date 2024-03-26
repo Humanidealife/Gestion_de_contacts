@@ -85,5 +85,28 @@ namespace Gestion_de_contacts
             Contacts.SaveContacts();
             RefreshListView();
         }
+
+        //Le bouton pour modifier un contact
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // tentative de récupération
+            // Contacts c = new Contacts(listView1.SelectedItems[0].Text, );
+            //On doit récupérer les informations du contact sélectionné
+            //On doit récupérer le nom, le prénom et le téléphone et de les remettre dans les textBox
+            ListViewItem lviSelected = listView1.SelectedItems[0];
+            textBox1.Text = lviSelected.Text;
+            textBox2.Text = lviSelected.SubItems[1].Text;
+            textBox3.Text = lviSelected.SubItems[2].Text;
+            //On doit pouvoir modifier les informations du contact
+            //On doit supprimer le contact sélectionné
+            for (int i = 0; i < Contacts.ListContacts.Count; i++)
+            {
+                if (i == listView1.SelectedItems[0].Index)
+                {
+                    Contacts.ListContacts.RemoveAt(i);
+                    break;
+                }
+            }
+        }
     }
 }
