@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.Json;
+using System.Diagnostics.Eventing.Reader;
 
 namespace Gestion_de_contacts
 {
