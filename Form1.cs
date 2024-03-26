@@ -49,5 +49,11 @@ namespace Gestion_de_contacts
                 listView1.Items.Add(lvi);
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //Charger la liste au niveau du formulaire
+            RefreshListView();
+        }
     }
 }
