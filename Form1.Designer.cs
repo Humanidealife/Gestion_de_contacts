@@ -115,17 +115,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "NOM";
-            this.columnHeader1.Width = 220;
+            this.columnHeader1.Width = 221;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Prénom";
-            this.columnHeader2.Width = 220;
+            this.columnHeader2.Width = 221;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Numéro téléphone";
-            this.columnHeader3.Width = 220;
+            this.columnHeader3.Width = 210;
             // 
             // button1
             // 
